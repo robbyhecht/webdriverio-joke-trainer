@@ -4,7 +4,7 @@ import { username, password } from '../td'
 
 describe('Navbar Features', () => {
 
-    browser.url('/');
+    browser.url('/')
 
     describe('Navbar Functionality When Logged Out', () => {
         it('Logo navigates to dashboard', () => {
