@@ -41,23 +41,11 @@ describe('Categories Column and Page', () => {
             it('Displays add to favorites button', () => {
                 expect(button.addToFavoritesButton).toBeVisible();
             });
-            it('User joke exists in category context', () => {
-                expect(categories.userJokeExists).toExist();
-            });
-            it('Displays user joke buttons', () => {
-                expect(button.editButton).toBeVisible()
-                expect(button.deleteButton).toBeVisible()
-            });
             it('Links to user-created jokes page', () => {
                 categories.categoriesHeading.waitForDisplayed()
                 categories.selectMyJokes()
                 const pageHeading = main.mainHeading.getText()
                 assert.equal(pageHeading, 'My Jokes')
-            });
-            it('User joke exists in user jokes context', () => {
-                expect(categories.userJokeExists).toBeVisible();
-                nav.logButton.click()
-                browser.pause(3000)
             });
         });
     });
