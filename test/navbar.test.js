@@ -87,15 +87,6 @@ describe('Navbar Features', () => {
             const currentUrl = browser.getUrl();
             assert.equal(currentUrl, 'https://www.joketrainer.com/');
         });
-        it('Performs a search that includes a user-added joke', () => {
-            nav.performSearch('set') // perform a search
-            let searchHeading = $('.search-header')
-            searchHeading.waitForDisplayed()
-            assert.equal(searchHeading.getText(), 'Search Results') // correct page heading
-            let resultsDescription = $('h6').getText()
-            chaiExpect(resultsDescription).to.include('set') // description incl search term
-            expect($('.card-text*=set')).toBeVisible() // joke card incl search term
-        });
         it('Log out logs the user out', () => {
             nav.clickNavLogout()
             const currentUrl = browser.getUrl();
