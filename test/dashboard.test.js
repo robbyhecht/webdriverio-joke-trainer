@@ -70,12 +70,6 @@ describe('Dashboard Appearance and Actions', () => {
             expect(button.flipButtonLoggedIn).toBeVisible()
             expect(button.addToFavoritesButton).toBeVisible()
         });
-        it('Clicking add to favorites button refreshes random joke', () => {
-            const jokeText = card.jokeTextQA.getText()
-            button.addToFavoritesButton.click()
-            const newJokeText = card.jokeTextQA.getText()
-            assert.notEqual(jokeText, newJokeText)
-        });
         it('Successfully log out', () => {
             nav.logButton.click()
             nav.navbar.waitForDisplayed()
