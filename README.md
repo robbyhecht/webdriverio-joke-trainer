@@ -1,7 +1,7 @@
-# WebdriverIO Test Suite for Joketrainer.com
+# WebdriverIO Test Suite for [Joketrainer.com](https://www.joketrainer.com/)
 
 ## What is Joke Trainer?
-joketrainer.com is a website dedicated to helping the world remember the jokes they love. 
+Joke Trainer is a website dedicated to helping the world remember the jokes they love. 
 
 ## What does this test suite do?
 
@@ -36,19 +36,19 @@ npm install --save-dev mocha chai chai-webdriverio
 npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
 ```
 
-### You can get more information about setting up WebdriverIO on their official site webdriver.io/docs
+### You can get more information about setting up WebdriverIO on their [official site](https://webdriver.io/docs/gettingstarted.html)
 
 ## You'll also need to create a test data file to feed in a unique username and password.
 
 First, go to joketrainer.com and register a new user account. Make sure to remember your username and password. Also be sure to not add any of your own jokes to the site or add any jokes to your favorites before running the tests. The way this suite is currently written relies on the example user being a new user for testing the favorites and add a joke functionalities.
 
-### Once you've created a user, make sure you're in the jt_webdriverio folder and run the following command:
+**Once you've created a user, make sure you're in the jt_webdriverio folder and run the following command:**
 
 ```
 touch td.js
 ```
 
-Open the new td.js file in your CODE EDITOR (not the command line) and copy in the following code, replacing YOUR USERNAME and YOUR PASSWORD with the appropriate credentials (Don't delete the quotations).
+Open the new **td.js** file in your **CODE EDITOR** (not the command line) and copy in the following code, replacing YOUR USERNAME and YOUR PASSWORD with the appropriate credentials (Don't delete the quotations).
 
 ```
 export const username = 'YOUR USERNAME'
