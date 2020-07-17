@@ -3,7 +3,7 @@ const nav = require('../page/navbar.page');
 const button = require('../page/buttons.page');
 import { username, password } from '../td'
 import { jokeCard, jokeTextQA } from '../page/card.page'
-import { mainHeading } from '../page/main.page'
+import { mainHeading, pageDescription } from '../page/main.page'
 
 let jokeAnswer
 
@@ -17,7 +17,7 @@ describe('Favorites and Trainer Pages', () => {
             mainHeading.waitForDisplayed();
             const heading = mainHeading.getText();
             assert.equal(heading, "Favorites");
-            const description = $('.main-text').getText();
+            const description = pageDescription.getText();
             chaiExpect(description).to.include("To add a joke to your favorites");
         });
         it('No jokes initially included in favorites', () => {
@@ -48,7 +48,7 @@ describe('Favorites and Trainer Pages', () => {
     });
     describe('Trainer Page', () => {
         it('Includes trainer page description', () => {
-            const description = $('.main-text').getText();
+            const description = pageDescription.getText();
             chaiExpect(description).to.include("a hint to jog your memory");
         });
         it('Flip button should have solo button styling on trainer page', () => {
