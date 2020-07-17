@@ -48,7 +48,7 @@ First, go to joketrainer.com and register a new user account. Make sure to remem
 touch td.js
 ```
 
-Open that file in your CODE EDITOR (not the command line) and copy in this code, replacing YOUR USERNAME and YOUR PASSWORD with the appropriate credentials (Don't delete the quotations).
+Open the new td.js file in your CODE EDITOR (not the command line) and copy in the following code, replacing YOUR USERNAME and YOUR PASSWORD with the appropriate credentials (Don't delete the quotations).
 
 ```
 export const username = 'YOUR USERNAME'
