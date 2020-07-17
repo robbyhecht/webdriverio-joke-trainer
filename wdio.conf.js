@@ -18,7 +18,6 @@ exports.config = {
     //
     specs: [
         './test/**/*.js'
-        // './test/favoritesAndTrainer.test.js'
     ],
     // Patterns to exclude.
     exclude: [

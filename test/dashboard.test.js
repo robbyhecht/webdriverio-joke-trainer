@@ -19,8 +19,8 @@ describe('Dashboard Appearance and Actions', () => {
             assert.equal(main.mainHeading.getText(), 'Welcome to Joke Trainer')
         });
         it('Page description is site explanation', () => {
-            $(main.pageDescription).waitForDisplayed()
-            chaiExpect(main.pageDescription.getText()).to.include('A curated library of jokes')
+            main.homepageDescription.waitForDisplayed()
+            chaiExpect(main.homepageDescription.getText()).to.include('A curated library of jokes')
         });
         it('About Column', () => {
             about.aboutHeading.waitForDisplayed()
