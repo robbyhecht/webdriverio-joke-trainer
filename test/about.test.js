@@ -10,39 +10,39 @@ describe('About Column Appearance and Functionality', () => {
 
     describe('Logged Out', () => {
         it('Cruise column link', () => {
-            about.aboutLink[0].click()
+            about.cruiseLink()
             const heading = main.mainHeading.getText()
             assert.equal(heading, "Cruise the Jokes")
         });
         it('Favorites column link', () => {
-            about.aboutLink[1].click()
+            about.favoritesLink()
             const heading = main.mainHeading.getText()
             assert.equal(heading, "Save Your Favorite Jokes")
         });
         it('Favorites button', () => {
-            about.aboutButton.click()
+            about.aboutButtonClick()
             const url = browser.getUrl()
             assert.equal(url, 'https://www.joketrainer.com/login?next=/favorites')
         });
         it('Trainer column link', () => {
             nav.clickNavHome()
-            about.aboutLink[2].click()
+            about.trainerLink()
             const heading = main.mainHeading.getText()
             assert.equal(heading, "Train Your Brain")
         });
         it('Trainer button', () => {
-            about.aboutButton.click()
+            about.aboutButtonClick()
             const url = browser.getUrl()
             assert.equal(url, 'https://www.joketrainer.com/login?next=/favorites/trainer')
         });
-        it('Add column link', () => {
+        it('Add Joke column link', () => {
             nav.clickNavHome()
-            about.aboutLink[3].click()
+            about.addJokeLink()
             const heading = main.mainHeading.getText()
             assert.equal(heading, "Add Your Own Jokes")
         });
-        it('Add button', () => {
-            about.aboutButton.click()
+        it('Add Joke button', () => {
+            about.aboutButtonClick()
             const url = browser.getUrl()
             assert.equal(url, 'https://www.joketrainer.com/login?next=/add')
         });
@@ -51,20 +51,20 @@ describe('About Column Appearance and Functionality', () => {
         it('Favorites button', () => {
             nav.logButton.click()
             login.login(username, password)
-            about.aboutLink[1].click()
-            about.aboutButton.click()
+            about.favoritesLink()
+            about.aboutButtonClick()
             const url = browser.getUrl()
             assert.equal(url, 'https://www.joketrainer.com/favorites')
         });
         it('Trainer button', () => {
-            about.aboutLink[2].click()
-            about.aboutButton.click()
+            about.trainerLink()
+            about.aboutButtonClick()
             const url = browser.getUrl()
             assert.equal(url, 'https://www.joketrainer.com/favorites/trainer')
         });
-        it('Add column link', () => {
-            about.aboutLink[3].click()
-            about.aboutButton.click()
+        it('Add Joke Button', () => {
+            about.addJokeLink()
+            about.aboutButtonClick()
             const url = browser.getUrl()
             assert.equal(url, 'https://www.joketrainer.com/add')
             nav.logButton.click()
