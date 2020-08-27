@@ -17,6 +17,10 @@ class LoginPage {
         this.registerBtn.waitForDisplayed()
         this.registerBtn.click()
     }
+    checkLoginAlert(alertMessage) {
+        this.loginAlert.waitForDisplayed()
+        assert.equal(this.loginAlert.getText(), alertMessage)
+    }
 
 }
 
