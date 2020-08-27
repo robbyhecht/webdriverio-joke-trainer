@@ -14,11 +14,10 @@ describe('Categories Column and Page', () => {
         it('Links to expected category page', () => {
             // Verified by comparing category selected to resulting page heading
             categories.categoriesHeading.waitForDisplayed()
-            const catName = categories.firstCategory.getText() // category name to select
-            categories.selectCategory()
+            const catName = categories.firstCategory.getText() // capture first category name
+            categories.selectCategory() // click first cateogry
             categories.categoriesPageHeadingContainer.waitForDisplayed()
-            const catHeading = main.mainHeading.getText() // category page heading
-            assert.equal(catName, catHeading)
+            main.checkPageHeading(catName) // check category heading against captured name
         });
     });
     describe('Page', () => {
@@ -33,7 +32,7 @@ describe('Categories Column and Page', () => {
         describe('Logged In', () => {
             it('Displays paired flip button when logged in', () => {
                 nav.clickNavLogin()
-                login.login(username, password);
+                login.login(username, password); // log in using td credentials
                 categories.selectCategory();
                 categories.categoriesPageHeadingContainer.waitForDisplayed();
                 expect(button.flipButtonLoggedIn).toBeVisible();
@@ -44,8 +43,7 @@ describe('Categories Column and Page', () => {
             it('Links to user-created jokes page', () => {
                 categories.categoriesHeading.waitForDisplayed()
                 categories.selectMyJokes()
-                const pageHeading = main.mainHeading.getText()
-                assert.equal(pageHeading, 'My Jokes')
+                main.checkPageHeading('My Jokes')
             });
         });
     });

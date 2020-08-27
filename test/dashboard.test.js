@@ -15,8 +15,7 @@ describe('Dashboard Appearance and Actions', () => {
             nav.confirmNavItems()
         });
         it('Heading is dashboard welcome message', () => {
-            main.mainHeading.waitForDisplayed()
-            assert.equal(main.mainHeading.getText(), 'Welcome to Joke Trainer')
+            main.checkPageHeading('Welcome to Joke Trainer')
         });
         it('Page description is site explanation', () => {
             main.homepageDescription.waitForDisplayed()

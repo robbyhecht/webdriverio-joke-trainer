@@ -7,10 +7,12 @@ class Categories {
     get userJokeExists() { return $('.triple-button-container') }
 
     selectCategory() {
+        // navigates to animals category (the first category listed)
         this.firstCategory.waitForDisplayed()
         this.firstCategory.click()
     }
     selectMyJokes() {
+        // navigates to my jokes
         this.myJokesCategory.waitForDisplayed()
         this.myJokesCategory.click()
     }
