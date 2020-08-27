@@ -53,6 +53,9 @@ class Navbar {
         this.logButton.waitForDisplayed()
         this.logButton.click()
     }
+    checkLogButtonStatus(logStatus) {
+        assert.equal(this.logButton.getText(), logStatus)
+    }
 
 }
 

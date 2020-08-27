@@ -1,5 +1,3 @@
-const card = require('./card.page')
-
 class Buttons {
     
     get flipButton() {return $('.flip-button')}
