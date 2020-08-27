@@ -1,5 +1,3 @@
-const main = require('../page/main.page')
-
 class About {
 
     get aboutHeading() { return $('#activities-header') }

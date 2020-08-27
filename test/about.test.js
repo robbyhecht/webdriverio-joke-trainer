@@ -9,65 +9,56 @@ describe('About Column Appearance and Functionality', () => {
     browser.url('/')
 
     describe('Logged Out', () => {
+
+        // test headings and urls when logged out
+
         it('Cruise column link', () => {
             about.cruiseLink()
-            const heading = main.mainHeading.getText()
-            assert.equal(heading, "Cruise the Jokes")
+            main.checkPageHeading("Cruise the Jokes")
         });
-        it('Favorites column link', () => {
+        it('Favorites column link and button', () => {
             about.favoritesLink()
-            const heading = main.mainHeading.getText()
-            assert.equal(heading, "Save Your Favorite Jokes")
-        });
-        it('Favorites button', () => {
+            main.checkPageHeading("Save Your Favorite Jokes")
             about.aboutButtonClick()
-            const url = browser.getUrl()
-            assert.equal(url, 'https://www.joketrainer.com/login?next=/favorites')
+            main.checkUrl('https://www.joketrainer.com/login?next=/favorites')
         });
-        it('Trainer column link', () => {
+        it('Trainer column link and button', () => {
             nav.clickNavHome()
             about.trainerLink()
-            const heading = main.mainHeading.getText()
-            assert.equal(heading, "Train Your Brain")
-        });
-        it('Trainer button', () => {
+            main.checkPageHeading("Train Your Brain")
             about.aboutButtonClick()
-            const url = browser.getUrl()
-            assert.equal(url, 'https://www.joketrainer.com/login?next=/favorites/trainer')
+            main.checkUrl('https://www.joketrainer.com/login?next=/favorites/trainer')
         });
-        it('Add Joke column link', () => {
+        it('Add Joke column link and button', () => {
             nav.clickNavHome()
             about.addJokeLink()
-            const heading = main.mainHeading.getText()
-            assert.equal(heading, "Add Your Own Jokes")
-        });
-        it('Add Joke button', () => {
+            main.checkPageHeading("Add Your Own Jokes")
             about.aboutButtonClick()
-            const url = browser.getUrl()
-            assert.equal(url, 'https://www.joketrainer.com/login?next=/add')
+            main.checkUrl('https://www.joketrainer.com/login?next=/add')
         });
     });
+    
     describe('Logged In', () => {
-        it('Favorites button', () => {
+
+        // test urls when logged in
+
+        it('Favorites button (includes login)', () => {
             nav.logButton.click()
-            login.login(username, password)
+            login.login(username, password) // log in with credentials from td file
             about.favoritesLink()
             about.aboutButtonClick()
-            const url = browser.getUrl()
-            assert.equal(url, 'https://www.joketrainer.com/favorites')
+            main.checkUrl('https://www.joketrainer.com/favorites')
         });
         it('Trainer button', () => {
             about.trainerLink()
             about.aboutButtonClick()
-            const url = browser.getUrl()
-            assert.equal(url, 'https://www.joketrainer.com/favorites/trainer')
+            main.checkUrl('https://www.joketrainer.com/favorites/trainer')
         });
         it('Add Joke Button', () => {
             about.addJokeLink()
             about.aboutButtonClick()
-            const url = browser.getUrl()
-            assert.equal(url, 'https://www.joketrainer.com/add')
-            nav.logButton.click()
+            main.checkUrl('https://www.joketrainer.com/add')
+            nav.logButton.click() // log out
         });
     });
 

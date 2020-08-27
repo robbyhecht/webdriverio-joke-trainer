@@ -7,33 +7,33 @@ class AddJoke {
     get addQuestion() { return $('#id_question') }
     get addAnswer() { return $('#id_answer') }
     get addHint() { return $('#id_hint') }
-    get firstCheckbox() { return $('#id_category_0') }
+    get firstCheckbox() { return $('#id_category_0') } // animals category
     get addButton() { return $('.new-joke-button') }
 
-    addJoke() {
+    addJoke(question, answer, hint) {
         // Adds a new user-specific joke to database
         this.addHeading.waitForDisplayed();
-        this.addQuestion.setValue('This is a test question');
-        this.addAnswer.setValue('This is a test answer');
-        this.addHint.setValue('This is a test hint');
+        this.addQuestion.setValue(question);
+        this.addAnswer.setValue(answer);
+        this.addHint.setValue(hint);
         this.firstCheckbox.click();
         this.addButton.click();
     }
-    searchUserJoke() {
+    searchUserJoke(questionText) {
         // Uses search bar to search for user-generated joke
-        nav.performSearch('test question');
+        nav.performSearch(questionText);
         let searchHeading = $('.search-header');
         searchHeading.waitForDisplayed();
         assert.equal(searchHeading.getText(), 'Search Results'); // correct page heading
         let resultsDescription = $('h6').getText();
-        chaiExpect(resultsDescription).to.include('test question'); // search description incl search term
-        expect($('.card-text*=test question')).toBeVisible(); // joke card incl search term
+        chaiExpect(resultsDescription).to.include(questionText); // search description incl search term
+        expect($(`.card-text*=${questionText}`)).toBeVisible(); // joke card incl search term
     }
-    confirmNewJoke() {
+    confirmNewJoke(question) {
         // Confirms addition of new user-generated joke
         categories.selectMyJokes();
         $('.main-header=My Jokes').waitForDisplayed();
-        expect($('.card-text=This is a test question')).toBeVisible();
+        expect($(`.card-text=${question}`)).toBeVisible();
     }
     confirmJokeInCategory() {
         //  Confirms that user joke is included in its designated category
@@ -41,13 +41,13 @@ class AddJoke {
         $('.main-header=Animals').waitForDisplayed();
         expect(categories.userJokeExists).toExist();
     }
-    editJoke() {
+    editJoke(newQuestion) {
         // Edits the user joke question
         categories.selectMyJokes();
         button.editButton.click()
-        this.addQuestion.setValue('This is an intriguing question')
+        this.addQuestion.setValue(newQuestion)
         $('.button=Submit').click()
-        expect($('.card-text=This is an intriguing question')).toBeVisible()
+        expect($(`.card-text=${newQuestion}`)).toBeVisible()
     }
     deleteModalCancel() {
         // Brings up the delete joke model and clicks to cancel the deletion
